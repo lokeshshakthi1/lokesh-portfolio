@@ -1,0 +1,97 @@
+{
+  "project_name": "Lokesh Shakthi - 3D Career Universe Portfolio",
+  "concept": "A cinematic, recruiter-focused 3D interactive universe showcasing Lokesh Shakthi's engineering journey as a Software Engineering Analyst at Accenture specializing in .NET, SQL Server, Python, and Data Analytics.",
+  "target_audience": "Tech Recruiters, Engineering Managers, CTOs, Senior Technical Architects looking for top-tier .NET & Data Engineering talent.",
+  "theme": "Dark Cinematic Cyberpunk-Minimalism",
+  "accent_color_strategy": "Electric Cyan & Teal glow (#00F5D4, #06B6D4) over deep obsidian (#050811) with glassmorphism overlays.",
+  
+  "colors": {
+    "background": "#050811",
+    "background_secondary": "#0A0E17",
+    "surface_glass": "rgba(15, 23, 42, 0.65)",
+    "border_glass": "rgba(255, 255, 255, 0.1)",
+    "primary_accent": "#00F5D4",
+    "secondary_accent": "#06B6D4",
+    "emerald_glow": "#10B981",
+    "sky_highlight": "#38BDF8",
+    "text_primary": "#F8FAFC",
+    "text_secondary": "#94A3B8",
+    "text_muted": "#64748B",
+    "card_bg": "#0B1120",
+    "hover_glow": "rgba(0, 245, 212, 0.15)"
+  },
+
+  "typography": {
+    "heading_font": "Outfit, sans-serif",
+    "body_font": "Plus Jakarta Sans, sans-serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "rules": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl tracking-tight font-extrabold text-white",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white",
+      "h3_card": "text-xl font-semibold text-slate-100",
+      "label_mono": "font-mono text-xs uppercase tracking-widest text-cyan-400",
+      "body_text": "text-base text-slate-300 leading-relaxed font-normal"
+    }
+  },
+
+  "spacing_and_layout": {
+    "section_padding": "py-24 px-4 sm:px-8 lg:px-16",
+    "max_container_width": "max-w-7xl mx-auto",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8",
+    "glass_card_style": "backdrop-blur-xl bg-slate-900/60 border border-white/10 rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(0,245,212,0.1)]"
+  },
+
+  "3d_and_interactive_components": {
+    "loading_screen": {
+      "component": "CinematicLoader",
+      "description": "Black screen with glowing digital wireframe, system startup text ('INITIALIZING CAREER UNIVERSE...'), loading progress indicator (0-100%), and fast-forward button."
+    },
+    "hero_3d": {
+      "component": "HeroScene3D",
+      "library": "@react-three/fiber + @react-three/drei",
+      "visuals": "Central interactive 3D Neural Core / Holographic Wireframe Globe with orbiting data nodes, ambient floating star dust, mouse parallax rotation, and subtle pulse lights."
+    },
+    "skill_universe": {
+      "component": "InteractiveSkillNodeCluster",
+      "description": "3D Canvas interactive skill graph. Nodes represent .NET, SQL Server, Python, Data Analytics, React, REST APIs, Microservices, Azure. Hovering highlights connected nodes and displays proficiency meter & real-world Accenture impact."
+    },
+    "journey_timeline_3d": {
+      "component": "CareerJourneyTimeline",
+      "description": "Interactive vertical 3D timeline with camera scroll markers for milestones: Accenture Software Engineering Analyst role, Data Pipeline optimizations, Enterprise SQL query tuning, Full-stack solution builds."
+    },
+    "project_gallery": {
+      "component": "ProjectGallery3D",
+      "description": "3D tilt cards with interactive view modal, live code preview snippet, key metric badges (e.g., '40% Query Speedup', '100k+ Records Processed'), technology tags, GitHub & Live Links."
+    },
+    "recruiter_quick_drawer": {
+      "component": "RecruiterFastTrackDrawer",
+      "description": "A top-right floating button 'Recruiter Mode' that opens a streamlined 1-page executive summary with key stats, top achievements, downloadable PDF resume, and direct schedule/contact options."
+    }
+  },
+
+  "media": {
+    "profile_portrait": "https://images.unsplash.com/photo-1721571698375-db5c4c4b0e50?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
+    "project_analytics_preview": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
+    "project_control_panel": "https://images.unsplash.com/photo-1720962158937-7ea890052166?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
+    "accenture_badge_logo_text": "Accenture Technology - Software Engineering Analyst"
+  },
+
+  "instructions_to_main_agent": [
+    "Implement Lenis smooth scroll or React Lenis for premium scroll weight.",
+    "Use Framer Motion for entrance animations with staggered reveals.",
+    "Ensure all interactive buttons, cards, inputs, tabs, and drawer toggles have data-testid attributes.",
+    "Include a Recruiter Fast-Track drawer or overlay button to give hiring managers instant access to key bullet points without having to scroll through the full 3D universe.",
+    "Add interactive sound toggle effect (subtle sci-fi UI clicks using Web Audio API or soft audio synth, muting by default).",
+    "Make sure the mobile view gracefully scales down 3D canvas resolution / particle count to maintain 60 FPS performance."
+  ],
+
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": {
+    "anti_patterns": [
+      "No generic white or bright gray backgrounds. Must be dark cinematic obsidian.",
+      "No plain default Inter font for headlines. Use Outfit / JetBrains Mono.",
+      "No missing contrast for text over transparent overlays.",
+      "No raw HTML select or standard input tags; use customized Shadcn/Tailwind controls."
+    ],
+    "testing": "All interactive elements MUST include data-testid='...' attributes."
+  }
+}
