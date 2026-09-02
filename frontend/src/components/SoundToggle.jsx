@@ -5,6 +5,29 @@ import { Volume2, VolumeX } from "lucide-react";
 let activeCtx = null;
 let blipBusy = false;
 
+export const playBootSwoosh = () => {
+    if (!activeCtx) return;
+    const ctx = activeCtx;
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    const filter = ctx.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.setValueAtTime(300, now);
+    filter.frequency.exponentialRampToValueAtTime(3200, now + 0.7);
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(140, now);
+    osc.frequency.exponentialRampToValueAtTime(980, now + 0.7);
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.09, now + 0.15);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.85);
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.9);
+};
+
 const playBlip = (kind) => {
     if (!activeCtx || blipBusy) return;
     blipBusy = true;

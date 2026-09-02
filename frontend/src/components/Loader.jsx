@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { playBootSwoosh } from "./SoundToggle";
 
 export const Loader = ({ onDone }) => {
     const [progress, setProgress] = useState(0);
@@ -12,6 +13,7 @@ export const Loader = ({ onDone }) => {
             setProgress(p);
             if (p >= 100) {
                 clearInterval(tick);
+                playBootSwoosh();
                 setTimeout(() => {
                     setGone(true);
                     onDone();
