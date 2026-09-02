@@ -27,6 +27,10 @@ Build a premium, futuristic, interactive 3D personal portfolio ("Career Universe
 - Scroll-reactive hero core (scales/rotates/rises with scroll progress)
 - SEO meta + OG tags; data-testid on all interactive elements; mobile low-power 3D (dpr/particles reduced)
 
+## Repository
+- GitHub: https://github.com/lokeshshakthi1/lokesh-portfolio (branch: main, pushed 2026-09-02)
+- .env files excluded via .gitignore (secrets not in repo)
+
 ## Backlog
 - P0: none blocking
 - P1: Downloadable resume PDF (need user-provided file); custom domain for Replit deploy
