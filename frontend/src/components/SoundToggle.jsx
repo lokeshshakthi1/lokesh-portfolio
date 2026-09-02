@@ -2,6 +2,37 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 
+let activeCtx = null;
+let blipBusy = false;
+
+const playBlip = (kind) => {
+    if (!activeCtx || blipBusy) return;
+    blipBusy = true;
+    setTimeout(() => (blipBusy = false), kind === "hover" ? 90 : 60);
+    const ctx = activeCtx;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    const now = ctx.currentTime;
+    if (kind === "hover") {
+        osc.frequency.setValueAtTime(1180, now);
+        osc.frequency.exponentialRampToValueAtTime(1560, now + 0.06);
+        gain.gain.setValueAtTime(0.035, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.09);
+        osc.start(now);
+        osc.stop(now + 0.1);
+    } else {
+        osc.frequency.setValueAtTime(1600, now);
+        osc.frequency.exponentialRampToValueAtTime(420, now + 0.12);
+        gain.gain.setValueAtTime(0.07, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
+        osc.start(now);
+        osc.stop(now + 0.15);
+    }
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+};
+
 export const SoundToggle = () => {
     const [on, setOn] = useState(false);
     const audioRef = useRef(null);
@@ -39,9 +70,11 @@ export const SoundToggle = () => {
 
         master.gain.linearRampToValueAtTime(0.05, ctx.currentTime + 1.8);
         audioRef.current = { ctx, master, oscs, lfo };
+        activeCtx = ctx;
     };
 
     const stop = () => {
+        activeCtx = null;
         const a = audioRef.current;
         if (!a) return;
         a.master.gain.linearRampToValueAtTime(0, a.ctx.currentTime + 0.4);
@@ -63,7 +96,28 @@ export const SoundToggle = () => {
         }
     };
 
-    useEffect(() => () => stop(), []);
+    useEffect(() => {
+        let lastEl = null;
+        const onOver = (e) => {
+            const el = e.target.closest?.("button, a");
+            if (el && el !== lastEl) {
+                lastEl = el;
+                playBlip("hover");
+            } else if (!el) {
+                lastEl = null;
+            }
+        };
+        const onClick = (e) => {
+            if (e.target.closest?.("button, a")) playBlip("click");
+        };
+        document.addEventListener("mouseover", onOver);
+        document.addEventListener("click", onClick);
+        return () => {
+            document.removeEventListener("mouseover", onOver);
+            document.removeEventListener("click", onClick);
+            stop();
+        };
+    }, []);
 
     return (
         <motion.button
