@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { GraduationCap, BadgeCheck } from "lucide-react";
+import { GraduationCap, BadgeCheck, Star } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { education, certifications } from "../data/portfolio";
 
@@ -41,10 +41,24 @@ export const Education = () => (
                     <h3 className="font-display text-lg font-semibold text-white mb-5">Certifications</h3>
                     <ul className="space-y-4">
                         {certifications.map((cert, i) => (
-                            <li key={i} data-testid={`certification-${i}`} className="flex items-center gap-3 border-b border-white/5 pb-4 last:border-0 last:pb-0">
-                                <span className="h-2 w-2 rounded-full bg-gradient-to-r from-[#00F5D4] to-[#38BDF8] shrink-0" />
+                            <li
+                                key={i}
+                                data-testid={`certification-${i}`}
+                                className={`flex items-center gap-3 border-b border-white/5 pb-4 last:border-0 last:pb-0 ${
+                                    cert.highlight
+                                        ? "rounded-xl -mx-3 px-3 py-2.5 bg-cyan-400/5 border border-cyan-400/25 shadow-[0_0_20px_rgba(0,245,212,0.08)]"
+                                        : ""
+                                }`}
+                            >
+                                {cert.highlight ? (
+                                    <Star size={12} className="text-[#00F5D4] shrink-0" fill="#00F5D4" />
+                                ) : (
+                                    <span className="h-2 w-2 rounded-full bg-gradient-to-r from-[#00F5D4] to-[#38BDF8] shrink-0" />
+                                )}
                                 <div>
-                                    <p className="text-sm text-slate-200 font-medium">{cert.name}</p>
+                                    <p className={`text-sm font-medium ${cert.highlight ? "text-white" : "text-slate-200"}`}>
+                                        {cert.name}
+                                    </p>
                                     <p className="text-xs text-slate-500">{cert.issuer}</p>
                                 </div>
                             </li>

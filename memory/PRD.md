@@ -20,7 +20,7 @@ Build a premium, futuristic, interactive 3D personal portfolio ("Career Universe
 - Scroll-driven Journey timeline (progress line, alternating 3D-tilt milestone cards)
 - 3D Skill Universe canvas (5 clusters, 21 nodes, hover inspector panel); mobile chip-grid fallback
 - Project gallery: 2 tilt cards + detail modal (Production Support, .NET Development & Reporting)
-- Experience (3 roles, Accenture), Education (Jain University BTech x2), Certifications (3)
+- Experience (3 roles, Accenture), Education (Jain University BTech x2), Certifications (7 total; 4 highlighted/starred per user: Design Patterns & SOLID, GIT, Azure AZ-900, SC-900)
 - Contact form → POST /api/contact → saves to Mongo `contact_messages` + emails lokeshshakthi1@gmail.com (verified: email_sent true)
 - Recruiter Mode drawer (exec summary, core stack, experience, certifications, email/LinkedIn CTAs + Download Resume PDF button serving /resume.pdf from the user's uploaded LinkedIn PDF)
 - Ambient sound toggle (Web Audio synth drone, muted by default, bottom-left) + sci-fi hover/click blips on all buttons and links when sound is on

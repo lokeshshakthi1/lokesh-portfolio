@@ -13,7 +13,7 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/lokesh-shakthi-20bb20216",
     stats: [
         { value: "3+", label: "Years of Experience" },
-        { value: "3", label: "Certifications" },
+        { value: "7", label: "Certifications" },
         { value: "1", label: "Enterprise Journey — Accenture" },
     ],
 };
@@ -194,6 +194,10 @@ export const education = [
 ];
 
 export const certifications = [
+    { name: "Software Design & Development: Design Patterns & SOLID Principles", issuer: "Certification", highlight: true },
+    { name: "GIT", issuer: "Certification", highlight: true },
+    { name: "Microsoft Azure AZ-900", issuer: "Microsoft Azure Fundamentals", highlight: true },
+    { name: "Microsoft SC-900", issuer: "Security, Compliance & Identity Fundamentals", highlight: true },
     { name: "Learning Python", issuer: "LinkedIn Learning" },
     { name: "Introduction to Programming Using Python", issuer: "Certification" },
     { name: "Problem Solving", issuer: "Certification" },
