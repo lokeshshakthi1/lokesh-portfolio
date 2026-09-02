@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, FolderGit2, Sparkles } from "lucide-react";
+import { ArrowDown, FolderGit2 } from "lucide-react";
 import { HeroScene } from "./HeroScene";
 import { scrollToSection } from "./Nav";
 import { profile } from "../data/portfolio";
@@ -30,9 +30,16 @@ export const Hero = ({ loaded, lowPower }) => {
                 {loaded && (
                     <>
                 <MaskedLine delay={0.1}>
-                    <span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 label-mono">
-                        <Sparkles size={12} className="text-cyan-300" />
-                        {profile.title} · {profile.company}
+                    <span className="glass inline-flex items-center rounded-full pl-5 pr-6 py-2.5">
+                        <span className="flex flex-col items-start leading-none">
+                            <span className="font-display text-[10px] font-medium uppercase tracking-[0.22em] text-slate-400">
+                                Software Engineering Analyst
+                            </span>
+                            <span className="font-display text-base font-bold tracking-[0.04em] text-white mt-1.5">
+                                ACCENTURE
+                            </span>
+                        </span>
+                        <span className="ml-4 h-7 w-px bg-gradient-to-b from-transparent via-sky-400/70 to-transparent" />
                     </span>
                 </MaskedLine>
 
