@@ -30,6 +30,7 @@ Build a premium, futuristic, interactive 3D personal portfolio ("Career Universe
 ## Repository
 - GitHub: https://github.com/lokeshshakthi1/lokesh-portfolio (branch: main, pushed 2026-09-02)
 - .env files excluded via .gitignore (secrets not in repo)
+- AUTO-PUSH ENABLED: after every feature/fix, run `bash /app/scripts/push.sh "<message>"`. Token lives at /root/.github_token (outside repo, never committed). Git config stays credential-free.
 
 ## Backlog
 - P0: none blocking
