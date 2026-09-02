@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, X, Mail, Linkedin, MapPin } from "lucide-react";
+import { Zap, X, Mail, Linkedin, MapPin, Download } from "lucide-react";
 import { profile, experience, certifications } from "../data/portfolio";
 
 export const RecruiterDrawer = () => {
@@ -112,6 +112,14 @@ export const RecruiterDrawer = () => {
                                     <Linkedin size={13} /> LinkedIn
                                 </a>
                             </div>
+                            <a
+                                data-testid="recruiter-resume-button"
+                                href="/resume.pdf"
+                                download="Lokesh_Shakthi_Resume.pdf"
+                                className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-full glass px-4 py-2.5 text-xs font-semibold text-cyan-300 hover:border-cyan-400/60 transition-colors"
+                            >
+                                <Download size={13} /> Download Resume (PDF)
+                            </a>
                         </motion.aside>
                     </motion.div>
                 )}

@@ -81,8 +81,16 @@ const ParallaxGroup = ({ children }) => {
     const mouse = useMouse();
     useFrame(() => {
         if (!group.current) return;
-        group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, mouse.current.x * 0.28, 0.05);
+        const s = Math.min(1, window.scrollY / Math.max(1, window.innerHeight));
+        group.current.rotation.y = THREE.MathUtils.lerp(
+            group.current.rotation.y,
+            mouse.current.x * 0.28 + s * 1.6,
+            0.05
+        );
         group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, -mouse.current.y * 0.18, 0.05);
+        const scale = 1 + s * 0.55;
+        group.current.scale.setScalar(THREE.MathUtils.lerp(group.current.scale.x, scale, 0.06));
+        group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, s * 1.4, 0.06);
     });
     return <group ref={group}>{children}</group>;
 };

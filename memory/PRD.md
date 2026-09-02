@@ -22,7 +22,9 @@ Build a premium, futuristic, interactive 3D personal portfolio ("Career Universe
 - Project gallery: 2 tilt cards + detail modal (Production Support, .NET Development & Reporting)
 - Experience (3 roles, Accenture), Education (Jain University BTech x2), Certifications (3)
 - Contact form → POST /api/contact → saves to Mongo `contact_messages` + emails lokeshshakthi1@gmail.com (verified: email_sent true)
-- Recruiter Mode drawer (exec summary, core stack, experience, certifications, email/LinkedIn CTAs)
+- Recruiter Mode drawer (exec summary, core stack, experience, certifications, email/LinkedIn CTAs + Download Resume PDF button serving /resume.pdf from the user's uploaded LinkedIn PDF)
+- Ambient sound toggle (Web Audio synth drone, muted by default, bottom-left)
+- Scroll-reactive hero core (scales/rotates/rises with scroll progress)
 - SEO meta + OG tags; data-testid on all interactive elements; mobile low-power 3D (dpr/particles reduced)
 
 ## Backlog

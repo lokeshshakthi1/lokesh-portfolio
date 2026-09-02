@@ -14,6 +14,7 @@ import { Experience } from "./components/Experience";
 import { Education } from "./components/Education";
 import { Contact } from "./components/Contact";
 import { RecruiterDrawer } from "./components/RecruiterDrawer";
+import { SoundToggle } from "./components/SoundToggle";
 import { profile } from "./data/portfolio";
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
                 </p>
             </footer>
             <RecruiterDrawer />
+            <SoundToggle />
             <Toaster theme="dark" position="bottom-center" />
         </div>
     );
